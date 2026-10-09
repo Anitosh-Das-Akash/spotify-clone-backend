@@ -91,4 +91,11 @@ async function loginUser(req,res) {
     
 }
 
-module.exports={registerUser,loginUser}
+async function logoutUser(req,res) {
+    res.clearCookie("token")
+    return res.status(201).json({
+        message:"User logout successfully"
+    })
+}
+
+module.exports={registerUser,loginUser,logoutUser}
